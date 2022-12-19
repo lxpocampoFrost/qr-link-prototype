@@ -22,8 +22,10 @@
     <script src="assets/js/app.js" type="text/javascript"></script>
     <script src="assets/detect.min.js" type="text/javascript"></script>
     <script>
-      let ua = detect.parse(navigator.userAgent);
+       let ua = detect.parse(navigator.userAgent);
       let button = document.getElementById('download');
+      let title = document.getElementById('title');
+      let description = document.getElementById('description');
 
       console.log(ua.os.family);
 
@@ -31,15 +33,23 @@
       switch(ua.os.family.toLowerCase()) {
         case 'android': 
           button.setAttribute('href', 'http://play.google.com?id=*');
+          title.innerHTML = 'You are on android'
+          description.innerHTML = '<a> href: http://play.google.com?id=*'
           break;
         case 'iOS': 
           button.setAttribute('href', 'https://appstore.com/')
+          title.innerHTML = 'You are on iOS'
+          description.innerHTML = '<a> href: https://appstore.com/'
           break;
         case 'windows':
           console.log("You are using windows!!");
+          title.innerHTML = 'You are on windows';
+          description.innerHTML = '<a> href: #'
           break;
         default: 
           button.setAttribute('href', '#')
+          title.innerHTML = 'Unknown family of OS'
+          description.innerHTML = '<a> href: #'
       }
     </script>
   </body>
