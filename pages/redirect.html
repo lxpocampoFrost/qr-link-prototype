@@ -1,0 +1,25 @@
+<script>
+    
+
+    let ua = detect.parse(navigator.userAgent);
+    let button = document.getElementById('download');
+    let title = document.getElementById('title');
+    let description = document.getElementById('description');
+
+
+    switch(ua.os.family.toLowerCase()) {
+      case 'android': 
+        window.location.replace("http://play.google.com?id=*");
+        break;
+      case 'iOS': 
+        window.location.replace("https://appstore.com/");
+        break;
+      case 'windows':
+        window.location.replace("#");
+        break;
+      default: 
+        button.setAttribute('href', '#')
+        title.innerHTML = 'Unknown family of OS'
+        description.innerHTML = '<a> href: #'
+    }
+  </script>
